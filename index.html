@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chimalhuacán Trabaja con el Profe Raúl</title>
+<meta name="description" content="Información útil para las familias de Chimalhuacán y un buzón para reportar lo que falla en escuelas, transporte y colonias.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f1e9;--card:#fbf8f3;--line:#e3d8c6;--ink:#1f1f22;--sub:#57504a;--gold:#9a763f;--gold2:#d9bf8c;--green:#1e5a4a;--green2:#e3efe9;--radius:18px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:Montserrat,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55;font-size:17px}
+img{max-width:100%;display:block}
+a{color:var(--green)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+/* nav */
+.nav{position:sticky;top:0;z-index:20;background:rgba(246,241,233,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:15px;letter-spacing:.06em;color:var(--ink);text-decoration:none}
+.brand img{width:40px;height:40px;border-radius:50%}
+.nav ul{display:flex;gap:22px;list-style:none;font-weight:600;font-size:14px}
+.nav ul a{color:var(--ink);text-decoration:none}
+.nav ul a:hover{color:var(--gold)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:inherit;font-weight:700;font-size:15px;border:0;border-radius:40px;padding:13px 24px;cursor:pointer;text-decoration:none;transition:transform .15s,background .15s}
+.btn:active{transform:scale(.98)}
+.btn-dark{background:var(--ink);color:#f6f1e9}.btn-dark:hover{background:#38383e}
+.btn-green{background:var(--green);color:#fff}.btn-green:hover{background:#174739}
+.btn-line{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 2px var(--ink)}
+.btn:focus-visible,summary:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--gold2);outline-offset:2px}
+@media(max-width:860px){.nav ul{display:none}.nav .btn{display:none}.hero-art .badge{left:12px;bottom:12px}}
+/* hero */
+.hero{padding:56px 0 0;overflow:hidden}
+.hero .grid{display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center}
+.kicker{font-weight:700;font-size:13px;letter-spacing:.24em;color:var(--gold);text-transform:uppercase}
+h1{font-size:clamp(38px,5.6vw,64px);line-height:1.02;font-weight:800;letter-spacing:-.02em;margin-top:14px;text-wrap:balance}
+h1 em{font-style:normal;color:var(--gold)}
+.hero p.lead{font-size:19px;color:var(--sub);margin-top:18px;max-width:34em}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.hero-art{position:relative}
+.hero-art .school{border-radius:24px;overflow:hidden;box-shadow:0 0 0 4px var(--gold2),0 30px 60px rgba(60,40,20,.14)}
+.hero-art .badge{position:absolute;left:-14px;bottom:-14px;background:var(--ink);color:#f6f1e9;border-radius:16px;padding:14px 18px;font-weight:700;font-size:14px;box-shadow:0 14px 30px rgba(0,0,0,.2)}
+.hero-art .badge b{color:var(--gold2);display:block;font-size:20px}
+.strip{margin-top:56px;background:var(--ink);color:#f6f1e9;border-top:6px solid var(--gold2)}
+.strip .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:26px 20px}
+.strip div{font-weight:600;font-size:15px}.strip b{display:block;color:var(--gold2);font-size:24px;font-weight:800}
+@media(max-width:860px){.hero .grid{grid-template-columns:1fr}.strip .wrap{grid-template-columns:1fr}}
+/* sections */
+section{padding:76px 0}
+h2{font-size:clamp(30px,4vw,44px);font-weight:800;line-height:1.08;letter-spacing:-.015em;margin-top:10px;text-wrap:balance}
+.sec-lead{color:var(--sub);font-size:18px;margin-top:12px;max-width:40em}
+/* buzon */
+.buzon{background:var(--green2)}
+.buzon .grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:start}
+.buzon ol{margin-top:22px;padding-left:0;list-style:none;counter-reset:s}
+.buzon ol li{counter-increment:s;position:relative;padding:0 0 16px 48px;color:var(--sub)}
+.buzon ol li::before{content:counter(s);position:absolute;left:0;top:-2px;width:32px;height:32px;border-radius:50%;background:var(--green);color:#fff;font-weight:800;display:grid;place-items:center;font-size:15px}
+.buzon ol li b{color:var(--ink)}
+.form{background:#fff;border-radius:24px;padding:28px;box-shadow:0 20px 50px rgba(30,90,74,.12)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 18px}
+.chip input{position:absolute;opacity:0;pointer-events:none}
+.chip span{display:inline-block;border:2px solid var(--line);border-radius:30px;padding:8px 14px;font-weight:600;font-size:14px;cursor:pointer;transition:all .15s}
+.chip input:checked+span{background:var(--green);border-color:var(--green);color:#fff}
+.chip input:focus-visible+span{outline:3px solid var(--gold2);outline-offset:2px}
+label.l{display:block;font-weight:700;font-size:14px;margin-bottom:6px}
+.field{margin-bottom:16px}
+.field input,.field select,.field textarea{width:100%;font:inherit;font-size:16px;border:2px solid var(--line);border-radius:12px;padding:12px 14px;background:var(--card);color:var(--ink)}
+.field textarea{min-height:120px;resize:vertical}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.hint{font-size:13px;color:var(--sub);margin-top:6px}
+.form .actions{display:flex;flex-direction:column;gap:10px;margin-top:6px}
+.ok{display:none;margin-top:14px;background:var(--green2);border-radius:12px;padding:14px;font-size:15px}
+.ok.show{display:block}
+.err{color:#a0322a;font-size:14px;font-weight:600;min-height:20px}
+@media(max-width:860px){.buzon .grid{grid-template-columns:1fr}.row2{grid-template-columns:1fr}}
+/* temas */
+.temas-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:34px;align-items:start}
+details.tema{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+details.tema summary{list-style:none;cursor:pointer;display:flex;gap:16px;align-items:center;padding:20px 22px}
+details.tema summary::-webkit-details-marker{display:none}
+.ico{flex:0 0 52px;height:52px;border-radius:14px;background:var(--green2);display:grid;place-items:center;font-size:26px}
+.t-title{font-weight:800;font-size:18px;line-height:1.25}
+.t-sub{font-size:14px;color:var(--sub);margin-top:2px}
+.plus{margin-left:auto;font-size:26px;color:var(--gold);transition:transform .2s;flex:0 0 auto}
+details[open] .plus{transform:rotate(45deg)}
+.t-body{padding:0 22px 22px 90px;color:#3d3833;font-size:16px}
+.t-body ul{padding-left:18px;margin:8px 0}
+.t-body li{margin:5px 0}
+.t-body .tag{display:inline-block;background:var(--ink);color:var(--gold2);font-weight:700;font-size:12px;letter-spacing:.08em;border-radius:20px;padding:4px 10px;margin-bottom:6px}
+.t-body .src{font-size:13px;color:var(--sub);margin-top:10px}
+@media(max-width:860px){.temas-grid{grid-template-columns:1fr}.t-body{padding:0 20px 20px}}
+/* trayectoria */
+.tray{background:var(--ink);color:#f6f1e9}
+.tray .kicker{color:var(--gold2)}
+.tray .grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:48px;align-items:center}
+.tray .photo{border-radius:24px;overflow:hidden;box-shadow:0 0 0 4px var(--gold2)}
+.tray .sec-lead{color:#cfc8bd}
+.tl{margin-top:26px;border-left:3px solid var(--gold2);padding-left:22px}
+.tl div{position:relative;padding-bottom:18px}
+.tl div::before{content:"";position:absolute;left:-31px;top:6px;width:15px;height:15px;border-radius:50%;background:var(--gold2);box-shadow:0 0 0 4px var(--ink)}
+.tl b{display:block;color:#fff;font-size:17px}
+.tl span{color:#cfc8bd;font-size:15px}
+.quote{margin-top:22px;font-size:20px;font-weight:700;color:var(--gold2)}
+@media(max-width:860px){.tray .grid{grid-template-columns:1fr}}
+/* notas */
+.notas-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:34px}
+.nota{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column}
+.nota .img{aspect-ratio:16/10;background-size:cover;background-position:center}
+.nota .b{padding:18px 20px 22px;display:flex;flex-direction:column;gap:8px;flex:1}
+.nota .cat{font-weight:700;font-size:12px;letter-spacing:.14em;color:var(--gold);text-transform:uppercase}
+.nota h3{font-size:19px;line-height:1.25;font-weight:800}
+.nota p{font-size:15px;color:var(--sub)}
+@media(max-width:860px){.notas-grid{grid-template-columns:1fr}}
+/* footer */
+footer{background:var(--ink);color:#cfc8bd;border-top:6px solid var(--gold2);padding:40px 0 30px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;align-items:center}
+footer .n{color:#fff;font-weight:800;font-size:22px}
+footer .s{color:var(--gold2);font-weight:700}
+footer small{display:block;margin-top:18px;font-size:13px;width:100%}
+.fab{position:fixed;right:18px;bottom:18px;z-index:30;box-shadow:0 12px 30px rgba(0,0,0,.25)}
+@media(min-width:861px){.fab{display:none}}
+</style>
+</head>
+<body>
+
+<nav class="nav"><div class="wrap">
+<a class="brand" href="#inicio"><img src="logo.png" alt="">CHIMALHUACÁN TRABAJA</a>
+<ul><li><a href="#buzon">Buzón</a></li><li><a href="#informacion">Información útil</a></li><li><a href="#profe">El Profe</a></li><li><a href="#notas">Notas</a></li></ul>
+<a class="btn btn-dark" href="#buzon" style="padding:10px 18px;font-size:14px">Deja tu reporte</a>
+</div></nav>
+
+<header class="hero" id="inicio">
+<div class="wrap grid">
+<div>
+<div class="kicker">Por un Chimalhuacán mejor</div>
+<h1>Lo que ves en tu colonia <em>también cuenta.</em></h1>
+<p class="lead">Un espacio para que las familias de Chimalhuacán reporten lo que falla en sus escuelas, el transporte y sus calles, y encuentren información útil para el día a día.</p>
+<div class="ctas"><a class="btn btn-green" href="#buzon">Reportar algo</a><a class="btn btn-line" href="#informacion">Ver información útil</a></div>
+</div>
+<div class="hero-art"><div class="school"><img src="school.svg" alt="Ilustración de una escuela de Chimalhuacán con niños y familias"></div>
+<div class="badge"><b>Profe Raúl Romero</b>Profesor y director escolar</div></div>
+</div>
+<div class="strip"><div class="wrap">
+<div><b>Escuelas</b>Lo que necesita la escuela de tu colonia</div>
+<div><b>Transporte</b>Rutas, paradas y seguridad en el camino</div>
+<div><b>Tu calle</b>Luminarias, baches, fugas y basura</div>
+</div></div>
+</header>
+
+<section class="buzon" id="buzon">
+<div class="wrap grid">
+<div>
+<div class="kicker">Buzón ciudadano</div>
+<h2>Cuéntanos qué falla y lo hacemos llegar.</h2>
+<p class="sec-lead">Tu reporte llega directo al equipo del Profe Raúl Romero. Entre más detalle nos des (calle, colonia, desde cuándo pasa), mejor podemos darle seguimiento.</p>
+<ol>
+<li><b>Elige el tema</b> de tu reporte.</li>
+<li><b>Escribe qué pasa y dónde.</b> Tu nombre y teléfono son opcionales.</li>
+<li><b>Envíalo</b> por WhatsApp o por Messenger de la página.</li>
+</ol>
+</div>
+<form class="form" id="f" novalidate>
+<label class="l">¿De qué trata tu reporte?</label>
+<div class="chips" role="radiogroup" aria-label="Tema del reporte">
+<label class="chip"><input type="radio" name="tema" value="Escuela" checked><span>🏫 Escuela</span></label>
+<label class="chip"><input type="radio" name="tema" value="Transporte"><span>🚌 Transporte</span></label>
+<label class="chip"><input type="radio" name="tema" value="Agua"><span>💧 Agua</span></label>
+<label class="chip"><input type="radio" name="tema" value="Calle y servicios"><span>💡 Calle y servicios</span></label>
+<label class="chip"><input type="radio" name="tema" value="Seguridad"><span>🛡️ Seguridad</span></label>
+<label class="chip"><input type="radio" name="tema" value="Propuesta o comentario"><span>💬 Propuesta</span></label>
+</div>
+<div class="field"><label class="l" for="colonia">Colonia o barrio</label><input id="colonia" autocomplete="address-level3" placeholder="Ej. San Agustín, Xochitenco…"></div>
+<div class="field"><label class="l" for="msg">¿Qué está pasando?</label><textarea id="msg" placeholder="Describe el problema, la calle o escuela y desde cuándo pasa."></textarea></div>
+<div class="row2">
+<div class="field"><label class="l" for="nombre">Tu nombre <span style="font-weight:500;color:var(--sub)">(opcional)</span></label><input id="nombre" autocomplete="name"></div>
+<div class="field"><label class="l" for="tel">Teléfono <span style="font-weight:500;color:var(--sub)">(opcional)</span></label><input id="tel" type="tel" inputmode="tel" autocomplete="tel"></div>
+</div>
+<div class="err" id="err" aria-live="polite"></div>
+<div class="actions">
+<button type="button" class="btn btn-green" id="wa">Enviar por WhatsApp</button>
+<button type="button" class="btn btn-line" id="fbm">Enviar por Messenger</button>
+</div>
+<p class="hint">Si es una emergencia, llama al 911.</p>
+<div class="ok" id="ok" aria-live="polite"></div>
+</form>
+</div>
+</section>
+
+<section id="informacion">
+<div class="wrap">
+<div class="kicker">Información útil</div>
+<h2>Lo que tu familia debe saber</h2>
+<p class="sec-lead">Información práctica para el día a día en Chimalhuacán. Toca cada tema para verlo completo.</p>
+<div class="temas-grid">
+
+<details class="tema" open><summary><span class="ico">🎓</span><span><span class="t-title">Becas para estudiantes</span><span class="t-sub" style="display:block">Rita Cetina, Benito Juárez y universidad</span></span><span class="plus">+</span></summary>
+<div class="t-body">
+<span class="tag">PRIMARIA Y SECUNDARIA</span>
+<p><b>Beca Rita Cetina</b> para alumnos de escuelas públicas. El registro de este ciclo ya cerró; si no alcanzaste, pregunta en tu escuela o en tu sede de Becas Bienestar por el siguiente periodo.</p>
+<span class="tag">PREPARATORIA</span>
+<p><b>Beca Benito Juárez</b>: $1,900 bimestrales para estudiantes de bachillerato público. El registro de este ciclo ya cerró; atento al próximo en becabenitojuarez.gob.mx.</p>
+<span class="tag">UNIVERSIDAD</span>
+<p><b>Jóvenes Escribiendo el Futuro</b>: $5,800 bimestrales. El registro se hace en SUBES.</p>
+<ul><li>Ten lista la CURP del estudiante y del tutor, INE, comprobante de domicilio y tu cuenta Llave MX.</li><li>El trámite es gratuito: no le pagues a nadie y usa sólo páginas .gob.mx.</li></ul>
+</div></details>
+
+<details class="tema"><summary><span class="ico">📝</span><span><span class="t-title">Inscripciones escolares</span><span class="t-sub" style="display:block">Preinscripción SEP ciclo 2027-2028</span></span><span class="plus">+</span></summary>
+<div class="t-body">
+<p>Las preinscripciones para <b>preescolar, primero de primaria y primero de secundaria</b> del ciclo 2027-2028 serán del <b>2 al 12 de febrero de 2027</b>, según el calendario de la SEP.</p>
+<ul><li>CURP del niño o niña y de la mamá, papá o tutor.</li><li>Acta de nacimiento.</li><li>Comprobante de domicilio reciente.</li><li>Para secundaria: el certificado o constancia de primaria.</li></ul>
+<p>El registro se hace en línea en la plataforma que publique la Secretaría de Educación del Estado de México; si no tienes internet, la escuela te puede orientar.</p>
+<p class="src">Fuente: calendario escolar 2026-2027 publicado por la SEP.</p>
+</div></details>
+
+<details class="tema"><summary><span class="ico">💧</span><span><span class="t-title">Cuidar el agua en casa</span><span class="t-sub" style="display:block">Consejos y qué hacer en tandeos o cortes</span></span><span class="plus">+</span></summary>
+<div class="t-body">
+<ul><li>Revisa fugas: cierra todas las llaves y fíjate si el medidor sigue girando.</li><li>Báñate en 5 minutos y cierra la llave mientras te enjabonas.</li><li>Reutiliza el agua de lavar ropa o trastes para el baño o el patio.</li><li>Lava el tinaco y la cisterna al menos dos veces al año y mantenlos tapados.</li></ul>
+<p><b>Si hay tandeo o corte:</b> guarda agua en recipientes limpios y tapados, prioriza beber y cocinar, y reporta fugas en la calle a ODAPAS Chimalhuacán o en nuestro buzón.</p>
+</div></details>
+
+<details class="tema"><summary><span class="ico">🎒</span><span><span class="t-title">Regreso seguro a casa</span><span class="t-sub" style="display:block">Para niñas, niños y jóvenes</span></span><span class="plus">+</span></summary>
+<div class="t-body">
+<ul><li>Acuerden una ruta fija y de preferencia caminen acompañados.</li><li>Que se aprendan de memoria un teléfono de casa.</li><li>Usen calles iluminadas y con comercios abiertos; eviten atajos solitarios.</li><li>Tengan una palabra clave familiar por si alguien desconocido dice que va por ellos.</li><li>En el transporte, sentados cerca del chofer y con el celular guardado.</li></ul>
+<p>Ante cualquier emergencia: <b>911</b>.</p>
+</div></details>
+
+<details class="tema"><summary><span class="ico">📞</span><span><span class="t-title">Teléfonos útiles</span><span class="t-sub" style="display:block">Emergencias y reportes en Chimalhuacán</span></span><span class="plus">+</span></summary>
+<div class="t-body">
+<ul><li><b>911</b> · Emergencias (policía, ambulancia, bomberos).</li><li><b>089</b> · Denuncia anónima.</li><li><b>55 5853 6128</b> · Seguridad Ciudadana de Chimalhuacán.</li><li><b>55 5853 7402</b> · Protección Civil y Bomberos de Chimalhuacán.</li><li><b>App Seguridad Chimalhuacán</b> · para reportar desde el celular.</li></ul>
+<p>Para luminarias, baches o fugas, también puedes dejar tu reporte en el <a href="#buzon">buzón</a> y le damos seguimiento.</p>
+<p class="src">Los números municipales pueden cambiar; confírmalos en los canales oficiales del Ayuntamiento.</p>
+</div></details>
+
+<details class="tema"><summary><span class="ico">📚</span><span><span class="t-title">Hábitos de estudio</span><span class="t-sub" style="display:block">Consejos de maestro para la tarea en casa</span></span><span class="plus">+</span></summary>
+<div class="t-body">
+<ul><li><b>Mismo lugar, misma hora:</b> una mesa con buena luz y sin tele.</li><li><b>Bloques cortos:</b> 25 minutos de estudio y 5 de descanso.</li><li><b>Celular lejos</b> mientras hacen la tarea.</li><li><b>Pregunten qué aprendieron hoy</b>; explicarlo en voz alta ayuda a entenderlo.</li><li><b>Leer 15 minutos diarios</b>, lo que les guste: cuentos, cómics o revistas.</li><li><b>Reconozcan el esfuerzo</b>, no sólo la calificación.</li></ul>
+</div></details>
+
+<details class="tema"><summary><span class="ico">🎆</span><span><span class="t-title">Fin de año seguro</span><span class="t-sub" style="display:block">Pirotecnia, accidentes y frío</span></span><span class="plus">+</span></summary>
+<div class="t-body">
+<ul><li>Evita la pirotecnia; si hay, que la manejen adultos y lejos de niños, cables y gas.</li><li>No dejes velas o series de luces encendidas al dormir o al salir.</li><li>Revisa conexiones de gas; no uses anafres ni braseros dentro de casa cerrada.</li><li>Abriga a las personas adultas mayores en capas y dales bebidas calientes.</li><li>Si alguien tiene quemaduras, lava con agua fría y llama al 911.</li></ul>
+</div></details>
+
+<details class="tema"><summary><span class="ico">🤝</span><span><span class="t-title">Apoyos del Bienestar</span><span class="t-sub" style="display:block">Pensiones y cómo registrarse</span></span><span class="plus">+</span></summary>
+<div class="t-body">
+<p><b>Pensión para Adultos Mayores:</b> para personas de 65 años o más; entrega $6,400 cada dos meses. Es universal: se recibe aunque tengas pensión del IMSS o ISSSTE.</p>
+<p><b>Pensión Mujeres Bienestar:</b> para mujeres de 60 a 64 años.</p>
+<p>El registro es <b>gratuito y presencial</b> en los Módulos del Bienestar, en los periodos que anuncia la Secretaría de Bienestar.</p>
+<ul><li>Identificación oficial y CURP.</li><li>Acta de nacimiento.</li><li>Comprobante de domicilio reciente.</li><li>Teléfono de contacto.</li></ul>
+<p class="src">Consulta fechas y requisitos en programasparaelbienestar.gob.mx.</p>
+</div></details>
+
+</div>
+</div>
+</section>
+
+<section class="tray" id="profe">
+<div class="wrap grid">
+<div class="photo"><img src="profe_sonrie.jpg" alt="El Profe Raúl Romero sonriendo"></div>
+<div>
+<div class="kicker">Quién es el Profe</div>
+<h2>Raúl Romero Ávalos</h2>
+<p class="sec-lead">Profesor y director escolar que ha combinado la docencia con el trabajo comunitario en Chimalhuacán y el Estado de México.</p>
+<div class="tl">
+<div><b>Maestro y director escolar</b><span>Desde el aula y la dirección ha impulsado a niñas, niños, jóvenes y adultos, convencido de que la educación y la transparencia van de la mano.</span></div>
+<div><b>Gestión social</b><span>Años de gestión para familias de Chimalhuacán, incluido el sector educativo, y apoyo a quienes menos tienen.</span></div>
+<div><b>Organización comunitaria</b><span>Dirigente del Movimiento Nacional Unidos por un Mejor País y del Colectivo Democrático 4 de Octubre (Codo-4).</span></div>
+<div><b>Arraigo en Chimalhuacán</b><span>Vecino de Chimalhuacán, conoce de cerca lo que viven sus escuelas y colonias.</span></div>
+</div>
+<p class="quote">“El trabajo correcto siempre trae algo bueno.”</p>
+</div>
+</div>
+</section>
+
+<section id="notas">
+<div class="wrap">
+<div class="kicker">Notas</div>
+<h2>Para estar al tanto</h2>
+<div class="notas-grid">
+<article class="nota"><div class="img" style="background-image:url(graduados.jpg)"></div><div class="b"><span class="cat">Educación</span><h3>Becas: que ningún estudiante se quede sin saberlo</h3><p>Repasamos las becas de primaria a universidad, quién puede pedirlas y qué documentos tener listos.</p><a href="#informacion">Leer más →</a></div></article>
+<article class="nota"><div class="img" style="background-image:url(transporte.svg)"></div><div class="b"><span class="cat">Transporte</span><h3>Moverse en Chimalhuacán puede ser mejor</h3><p>¿Qué falla en tu ruta de todos los días? Paradas sin luz, unidades en mal estado, horarios. Cuéntanos.</p><a href="#buzon">Reportar →</a></div></article>
+<article class="nota"><div class="img" style="background-image:url(colonia.svg)"></div><div class="b"><span class="cat">Tu colonia</span><h3>Lo que ves en tu calle también cuenta</h3><p>Luminarias apagadas, baches, fugas o basura: cada reporte ayuda a ubicar dónde hace falta trabajo.</p><a href="#buzon">Reportar →</a></div></article>
+</div>
+</div>
+</section>
+
+<footer><div class="wrap">
+<div><div class="n">Profe Raúl Romero</div><div class="s">Por un Chimalhuacán mejor</div></div>
+<a class="btn btn-green" href="https://www.facebook.com/profile.php?id=1573934602460802" target="_blank" rel="noopener">Síguenos en Facebook</a>
+<small>Chimalhuacán Trabaja con el Profe Raúl · Página informativa administrada por su equipo de simpatizantes.</small>
+</div></footer>
+
+<a class="btn btn-green fab" href="#buzon">✍️ Reportar</a>
+
+<script>
+// Número de WhatsApp que recibe los reportes (10 dígitos, sin espacios). Déjalo vacío para usar sólo Messenger.
+const WHATSAPP = "";
+const PAGE_ID = "1573934602460802";
+const $ = s => document.querySelector(s);
+function compose(){
+  const tema = (document.querySelector('input[name=tema]:checked')||{}).value || "";
+  const col = $('#colonia').value.trim(), msg = $('#msg').value.trim();
+  const nom = $('#nombre').value.trim(), tel = $('#tel').value.trim();
+  if(!msg){ $('#err').textContent = "Escribe qué está pasando para poder enviar tu reporte."; $('#msg').focus(); return null; }
+  $('#err').textContent = "";
+  return `Reporte ciudadano · ${tema}\nColonia: ${col||"(sin dato)"}\n\n${msg}\n\n${nom?"Nombre: "+nom+"\n":""}${tel?"Teléfono: "+tel+"\n":""}Enviado desde la página Chimalhuacán Trabaja`;
+}
+async function copy(t){ try{ await navigator.clipboard.writeText(t); return true }catch(e){ return false } }
+function done(html){ const ok=$('#ok'); ok.innerHTML=html; ok.classList.add('show'); }
+$('#wa').addEventListener('click', async ()=>{
+  const t = compose(); if(!t) return;
+  if(WHATSAPP){ window.open(`https://wa.me/52${WHATSAPP}?text=${encodeURIComponent(t)}`,'_blank'); done("¡Gracias! Se abrió WhatsApp con tu reporte listo; sólo toca enviar."); return; }
+  const c = await copy(t);
+  done((c?"Copiamos tu reporte. ":"")+"Por ahora recibimos reportes por Messenger: toca <b>Enviar por Messenger</b>"+(c?" y pega el mensaje.":"."));
+});
+$('#fbm').addEventListener('click', async ()=>{
+  const t = compose(); if(!t) return;
+  const c = await copy(t);
+  window.open(`https://m.me/${PAGE_ID}`,'_blank');
+  done(c?"¡Gracias! Copiamos tu reporte: en Messenger sólo pégalo y envíalo.":"Se abrió Messenger. Escribe ahí tu reporte para enviarlo.");
+});
+</script>
+</body>
+</html>
