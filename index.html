@@ -120,13 +120,27 @@ footer .s{color:var(--gold2);font-weight:700}
 footer small{display:block;margin-top:18px;font-size:13px;width:100%}
 .fab{position:fixed;right:18px;bottom:18px;z-index:30;box-shadow:0 12px 30px rgba(0,0,0,.25)}
 @media(min-width:861px){.fab{display:none}}
+.brand .mor{height:22px;width:auto;border-radius:0;padding-left:12px;margin-left:2px;border-left:1px solid var(--line)}
+.mor-tray{height:44px;width:auto;margin-bottom:14px;display:block}
+footer .mor-f{height:40px;width:auto;display:block;margin-bottom:12px}
+.videos{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.videos .grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.fbbox{background:#fff;border-radius:var(--radius);box-shadow:0 0 0 1px var(--line),0 20px 40px rgba(60,40,20,.08);overflow:hidden;max-width:500px;width:100%;justify-self:center}
+.fbbox iframe{display:block;width:100%;height:760px;border:0}
+.live{display:inline-flex;align-items:center;gap:8px;background:#fbe3e3;color:#a11d2b;font-weight:800;font-size:13px;letter-spacing:.12em;border-radius:99px;padding:6px 14px;margin:18px 0 6px}
+.live i{width:9px;height:9px;border-radius:50%;background:#d0263a;animation:pl 1.4s infinite}
+@keyframes pl{50%{opacity:.25}}
+.vlist{margin:22px 0 28px;padding:0;list-style:none;display:grid;gap:12px}
+.vlist li{background:#fff;border-radius:14px;padding:14px 18px;box-shadow:0 0 0 1px var(--line);font-weight:600}
+.vlist li span{display:block;font-weight:500;font-size:15px;color:var(--sub)}
+@media(max-width:860px){.videos .grid{grid-template-columns:1fr;gap:28px}.brand .mor{display:none}}
 </style>
 </head>
 <body>
 
 <nav class="nav"><div class="wrap">
-<a class="brand" href="#inicio"><img src="logo.png" alt="">CHIMALHUACÁN TRABAJA</a>
-<ul><li><a href="#buzon">Buzón</a></li><li><a href="#informacion">Información útil</a></li><li><a href="#profe">El Profe</a></li><li><a href="#notas">Notas</a></li></ul>
+<a class="brand" href="#inicio"><img src="logo.png" alt="">CHIMALHUACÁN TRABAJA<img class="mor" src="morena.png" alt="Morena"></a>
+<ul><li><a href="#buzon">Buzón</a></li><li><a href="#informacion">Información útil</a></li><li><a href="#videos">Videos</a></li><li><a href="#profe">El Profe</a></li><li><a href="#notas">Notas</a></li></ul>
 <a class="btn btn-dark" href="#buzon" style="padding:10px 18px;font-size:14px">Deja tu reporte</a>
 </div></nav>
 
@@ -157,7 +171,7 @@ footer small{display:block;margin-top:18px;font-size:13px;width:100%}
 <ol>
 <li><b>Elige el tema</b> de tu reporte.</li>
 <li><b>Escribe qué pasa y dónde.</b> Tu nombre y teléfono son opcionales.</li>
-<li><b>Envíalo</b> por WhatsApp o por Messenger de la página.</li>
+<li><b>Envíalo</b> y le llega directo al equipo. Si prefieres, también puedes escribirnos por Messenger.</li>
 </ol>
 </div>
 <form class="form" id="f" novalidate>
@@ -176,10 +190,11 @@ footer small{display:block;margin-top:18px;font-size:13px;width:100%}
 <div class="field"><label class="l" for="nombre">Tu nombre <span style="font-weight:500;color:var(--sub)">(opcional)</span></label><input id="nombre" autocomplete="name"></div>
 <div class="field"><label class="l" for="tel">Teléfono <span style="font-weight:500;color:var(--sub)">(opcional)</span></label><input id="tel" type="tel" inputmode="tel" autocomplete="tel"></div>
 </div>
+<input type="text" id="hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px">
 <div class="err" id="err" aria-live="polite"></div>
 <div class="actions">
-<button type="button" class="btn btn-green" id="wa">Enviar por WhatsApp</button>
-<button type="button" class="btn btn-line" id="fbm">Enviar por Messenger</button>
+<button type="button" class="btn btn-green" id="send">Enviar reporte</button>
+<button type="button" class="btn btn-line" id="fbm">Mejor por Messenger</button>
 </div>
 <p class="hint">Si es una emergencia, llama al 911.</p>
 <div class="ok" id="ok" aria-live="polite"></div>
@@ -255,10 +270,29 @@ footer small{display:block;margin-top:18px;font-size:13px;width:100%}
 </div>
 </section>
 
+<section class="videos" id="videos">
+<div class="wrap grid">
+<div>
+<div class="kicker">En Facebook</div>
+<h2>Videos y transmisiones en vivo</h2>
+<div class="live"><i></i>SIGUE LOS EN VIVOS</div>
+<p class="sec-lead">Aquí aparece lo más reciente de la página: los videos, los en vivos del Profe y la información útil que publicamos cada día. Se actualiza solo.</p>
+<ul class="vlist">
+<li>📚 Tips para que estudien mejor en casa<span>Ideas sencillas para la tarea de todos los días.</span></li>
+<li>📞 Teléfonos que debes tener a la mano<span>911, 089 y la policía de Chimalhuacán.</span></li>
+<li>🎓 Becas para estudiantes<span>Cuáles hay, quién puede pedirlas y cómo registrarse.</span></li>
+</ul>
+<a class="btn btn-green" href="https://www.facebook.com/profile.php?id=61596567940848&amp;sk=videos" target="_blank" rel="noopener">Ver todos los videos</a>
+</div>
+<div class="fbbox"><iframe id="fbplug" title="Publicaciones de la página Chimalhuacán Trabaja con el Profe Raúl en Facebook" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe></div>
+</div>
+</section>
+
 <section class="tray" id="profe">
 <div class="wrap grid">
 <div class="photo"><img src="profe_sonrie.jpg" alt="El Profe Raúl Romero sonriendo"></div>
 <div>
+<img class="mor-tray" src="morena_blanco.png" alt="Morena">
 <div class="kicker">Quién es el Profe</div>
 <h2>Raúl Romero Ávalos</h2>
 <p class="sec-lead">Profesor y director escolar que ha combinado la docencia con el trabajo comunitario en Chimalhuacán y el Estado de México.</p>
@@ -286,17 +320,17 @@ footer small{display:block;margin-top:18px;font-size:13px;width:100%}
 </section>
 
 <footer><div class="wrap">
-<div><div class="n">Profe Raúl Romero</div><div class="s">Por un Chimalhuacán mejor</div></div>
-<a class="btn btn-green" href="https://www.facebook.com/profile.php?id=1573934602460802" target="_blank" rel="noopener">Síguenos en Facebook</a>
+<div><img class="mor-f" src="morena_blanco.png" alt="Morena"><div class="n">Profe Raúl Romero</div><div class="s">Por un Chimalhuacán mejor</div></div>
+<a class="btn btn-green" href="https://www.facebook.com/profile.php?id=61596567940848" target="_blank" rel="noopener">Síguenos en Facebook</a>
 <small>Chimalhuacán Trabaja con el Profe Raúl · Página informativa administrada por su equipo de simpatizantes.</small>
 </div></footer>
 
 <a class="btn btn-green fab" href="#buzon">✍️ Reportar</a>
 
 <script>
-// Número de WhatsApp que recibe los reportes (10 dígitos, sin espacios). Déjalo vacío para usar sólo Messenger.
-const WHATSAPP = "";
-const PAGE_ID = "1573934602460802";
+// Correo que recibe los reportes del buzón (vía FormSubmit; el primer envío pide activar desde ese correo).
+const EMAIL = "contacto@proferaulromero.com";
+const PAGE_ID = "61596567940848";
 const $ = s => document.querySelector(s);
 function compose(){
   const tema = (document.querySelector('input[name=tema]:checked')||{}).value || "";
@@ -308,11 +342,22 @@ function compose(){
 }
 async function copy(t){ try{ await navigator.clipboard.writeText(t); return true }catch(e){ return false } }
 function done(html){ const ok=$('#ok'); ok.innerHTML=html; ok.classList.add('show'); }
-$('#wa').addEventListener('click', async ()=>{
+$('#send').addEventListener('click', async ()=>{
   const t = compose(); if(!t) return;
-  if(WHATSAPP){ window.open(`https://wa.me/52${WHATSAPP}?text=${encodeURIComponent(t)}`,'_blank'); done("¡Gracias! Se abrió WhatsApp con tu reporte listo; sólo toca enviar."); return; }
-  const c = await copy(t);
-  done((c?"Copiamos tu reporte. ":"")+"Por ahora recibimos reportes por Messenger: toca <b>Enviar por Messenger</b>"+(c?" y pega el mensaje.":"."));
+  const b = $('#send'); b.disabled = true; const label = b.textContent; b.textContent = "Enviando…";
+  const tema = (document.querySelector('input[name=tema]:checked')||{}).value || "";
+  try{
+    const r = await fetch(`https://formsubmit.co/ajax/${EMAIL}`, {method:'POST', headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body: JSON.stringify({_subject:`Buzón ciudadano · ${tema} · ${$('#colonia').value.trim()||'sin colonia'}`, _template:'table', _captcha:'false',
+        Tema: tema, Colonia: $('#colonia').value.trim()||'(sin dato)', Reporte: $('#msg').value.trim(),
+        Nombre: $('#nombre').value.trim()||'(no lo dejó)', Telefono: $('#tel').value.trim()||'(no lo dejó)', _honey: $('#hp').value})});
+    const j = await r.json().catch(()=>({}));
+    if(!r.ok || String(j.success)==='false') throw new Error(j.message||'error');
+    $('#f').reset(); done("¡Gracias! Tu reporte llegó al equipo del Profe Raúl Romero. Le daremos seguimiento.");
+  }catch(e){
+    const c = await copy(t);
+    done("No pudimos enviarlo en este momento. "+(c?"Copiamos tu reporte: ":"")+"toca <b>Mejor por Messenger</b>"+(c?" y pégalo ahí.":" para escribirnos."));
+  }finally{ b.disabled = false; b.textContent = label; }
 });
 $('#fbm').addEventListener('click', async ()=>{
   const t = compose(); if(!t) return;
@@ -320,6 +365,11 @@ $('#fbm').addEventListener('click', async ()=>{
   window.open(`https://m.me/${PAGE_ID}`,'_blank');
   done(c?"¡Gracias! Copiamos tu reporte: en Messenger sólo pégalo y envíalo.":"Se abrió Messenger. Escribe ahí tu reporte para enviarlo.");
 });
+</script>
+<script>
+(function(){const f=document.getElementById('fbplug');function load(){const w=Math.max(280,Math.min(500,Math.round(f.parentElement.clientWidth)));
+f.src='https://www.facebook.com/plugins/page.php?href='+encodeURIComponent('https://www.facebook.com/profile.php?id=61596567940848')+'&tabs=timeline&width='+w+'&height=760&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&locale=es_LA';}
+load();})();
 </script>
 </body>
 </html>
